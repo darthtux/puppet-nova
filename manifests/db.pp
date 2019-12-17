@@ -103,18 +103,18 @@ class nova::db (
 
   # NOTE(spredzy): In order to keep backward compatibility we rely on the pick function
   # to use nova::<myparam> first the nova::db::<myparam>
-  $database_connection_real = pick(getvar('::nova::database_connection') getvar('database_connection'))
-  $slave_connection_real = pick(getvar('::nova::slave_connection') getvar('slave_connection'))
-  $api_database_connection_real = pick(getvar('::nova::api_database_connection') getvar('api_database_connection'))
-  $api_slave_connection_real = pick(getvar('::nova::api_slave_connection') getvar('api_slave_connection'))
-  $placement_database_connection_real = pick(getvar('::nova::placement_database_connection') getvar('placement_database_connection'))
-  $placement_slave_connection_real = pick(getvar('::nova::placement_slave_connection') getvar('placement_slave_connection'))
-  $database_idle_timeout_real = pick(getvar('::nova::database_idle_timeout') getvar('database_idle_timeout'))
-  $database_min_pool_size_real = pick(getvar('::nova::database_min_pool_size') getvar('database_min_pool_size'))
-  $database_max_pool_size_real = pick(getvar('::nova::database_max_pool_size') getvar('database_max_pool_size'))
-  $database_max_retries_real = pick(getvar('::nova::database_max_retries') getvar('database_max_retries'))
-  $database_retry_interval_real = pick(getvar('::nova::database_retry_interval') getvar('database_retry_interval'))
-  $database_max_overflow_real = pick(getvar('::nova::database_max_overflow') getvar('database_max_overflow'))
+  $database_connection_real = pick(getvar('::nova::database_connection'), getvar('database_connection'))
+  $slave_connection_real = pick(getvar('::nova::slave_connection'), getvar('slave_connection'))
+  $api_database_connection_real = pick(getvar('::nova::api_database_connection'), getvar('api_database_connection'))
+  $api_slave_connection_real = pick(getvar('::nova::api_slave_connection'), getvar('api_slave_connection'))
+  $placement_database_connection_real = pick(getvar('::nova::placement_database_connection'), getvar('placement_database_connection'))
+  $placement_slave_connection_real = pick(getvar('::nova::placement_slave_connection'), getvar('placement_slave_connection'))
+  $database_idle_timeout_real = pick(getvar('::nova::database_idle_timeout'), getvar('database_idle_timeout'))
+  $database_min_pool_size_real = pick(getvar('::nova::database_min_pool_size'), getvar('database_min_pool_size'))
+  $database_max_pool_size_real = pick(getvar('::nova::database_max_pool_size'), getvar('database_max_pool_size'))
+  $database_max_retries_real = pick(getvar('::nova::database_max_retries'), getvar('database_max_retries'))
+  $database_retry_interval_real = pick(getvar('::nova::database_retry_interval'), getvar('database_retry_interval'))
+  $database_max_overflow_real = pick(getvar('::nova::database_max_overflow'), getvar('database_max_overflow'))
 
   if !is_service_default($database_connection_real) {
 
