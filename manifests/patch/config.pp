@@ -19,7 +19,7 @@ class nova::patch::config (
 
   include ::nova::deps
 
-  $monkey_patch_modules_real = pick(join(any2array($monkey_patch_modules), ','), $::os_service_default)
+  $monkey_patch_modules_real = pick(join(any2array(getvar('monkey_patch_modules')), ','), getvar('::os_service_default'))
 
   nova_config {
     'DEFAULT/monkey_patch':         value => $monkey_patch;

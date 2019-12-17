@@ -90,7 +90,7 @@ class nova::cron::archive_deleted_rows (
   cron { 'nova-manage db archive_deleted_rows':
     command     => "${sleep}nova-manage db archive_deleted_rows --max_rows ${max_rows} ${until_complete_real} >>${destination} 2>&1",
     environment => 'PATH=/bin:/usr/bin:/usr/sbin SHELL=/bin/sh',
-    user        => pick($user, $::nova::params::nova_user),
+    user        => pick(getvar('user'), getvar('::nova::params::nova_user')),
     minute      => $minute,
     hour        => $hour,
     monthday    => $monthday,
