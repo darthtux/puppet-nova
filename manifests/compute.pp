@@ -197,7 +197,7 @@ class nova::compute (
   include ::nova::deps
   include ::nova::params
 
-  $vcpu_pin_set_real = pick(join(any2array(getvar('vcpu_pin_set'), ','), getvar('::os_service_default'))
+  $vcpu_pin_set_real = pick(join(any2array($vcpu_pin_set), ','), getvar('::os_service_default'))
 
   include ::nova::pci
 
