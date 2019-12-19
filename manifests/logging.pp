@@ -127,7 +127,7 @@ class nova::logging(
   } else {
     $log_dir_real = $log_dir
   }
-  $debug_real = pick(getbar('::nova::debug'),getvar('debug'))
+  $debug_real = pick(getvar('::nova::debug'),getvar('debug'))
 
   if $log_dir_real != $::os_service_default {
     # TODO: can probably remove this in Rocky once we've had it for 1 upgrade cycle
